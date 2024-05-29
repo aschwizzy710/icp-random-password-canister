@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "my_rust_canister_backend": {
+      "candid": "src/my_rust_canister_backend/my_rust_canister_backend.did",
+      "package": "my_rust_canister_backend",
+      "type": "rust"
+    },
+    "my_rust_canister_frontend": {
+      "dependencies": [
+        "my_rust_canister_backend"
+      ],
+      "source": [
+        "src/my_rust_canister_frontend/assets"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
