@@ -1,7 +1,8 @@
 {
   "canisters": {
     "my_rust_canister_backend": {
-      "candid": "src/my_rust_canister_backend/my_rust_canister_backend.did",
+      "candid": 
+"src/my_rust_canister_backend/my_rust_canister_backend.did",
       "package": "my_rust_canister_backend",
       "type": "rust"
     },
@@ -24,3 +25,4 @@
   "output_env_file": ".env",
   "version": 1
 }
+
