@@ -1,4 +1,20 @@
-service : {
-    "generate_password": (nat64) -> (record { value: text });
-}
+type Password = record {
+    value: text;
+    created_at: nat64;
+    owner: principal;
+};
 
+type PasswordPayload = record {
+    value: text;
+};
+
+service : {
+    generate_password: (nat64) -> (result : (Password) variant { Ok: Password; Err: text });
+    store_password: (Password) -> ();
+    update_password: (nat64, PasswordPayload) -> (result : (text) variant { Ok: text; Err: text });
+    delete_password: (nat64) -> (result : (text) variant { Ok: text; Err: text });
+    get_password: (nat64) -> (result : (Password) variant { Ok: Password; Err: text });
+    list_passwords: () -> (vec Password);
+    validate_password: (PasswordPayload) -> (result : (text) variant { Ok: text; Err: text });
+    check_password_uniqueness: (PasswordPayload) -> (result : (bool) variant { Ok: bool; Err: text });
+}
